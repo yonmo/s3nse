@@ -1,2 +1,2 @@
-secrets.key
-firewall/
+.env
+configs/

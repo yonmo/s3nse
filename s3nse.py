@@ -1,11 +1,13 @@
-import os, subprocess, time, boto3, re
+import os, subprocess, time, boto3, re, dotenv
+
+dotenv.load_dotenv()
 
 # !!!! OUT OF SCOPE !!!! (I SWEAR I WILL EAT YOUR LEGS) !!!! OUT OF SCOPE !!!! #
-REGION = 'nyc3'
-ENDPOINT = 'https://nyc3.digitaloceanspaces.com'
-# ACCESS_ID = 
-# SECRET_KEY = 
-BUCKET = 'idolum'
+REGION = os.getenv('REGION')
+ENDPOINT = os.getenv('ENDPOINT')
+ACCESS_ID = os.getenv('ACCESS_ID')
+SECRET_KEY = os.getenv('SECRET_KEY')
+BUCKET = os.getenv('BUCKET')
 # !!!! OUT OF SCOPE !!!! (I SWEAR I WILL EAT YOUR LEGS) !!!! OUT OF SCOPE !!!! #
 
 # Initiate Global Client Session
@@ -41,7 +43,7 @@ def initialize(kargs):
     '''
         initialize bashrc and init defaults
     '''
-    return(karge)
+    return(kargs)
 
 def firewall(kargs):
     return(kargs)
@@ -60,7 +62,7 @@ def configureService(kargs):
                 # Parse Out Dangerous Characters To Avoid Quirky Eval Possibilities
                 input = re.sub(r'[^a-zA-Z]', '', kargs[0])
                 if (eval(input) == service) or (input == 'all'):
-                    if (getFile(BUCKET, sshd['CONFIG']) == 0):
+                    if (getFile(BUCKET, service['CONFIG']) == 0):
                         process = subprocess.run('sudo cp ' + service['CONFIG'] + ' ' + service['PATH'], shell=True, capture_output=True, text=True)
                         print(process.stdout)
                         process = subprocess.run(service['RESTART'], shell=True, capture_output=True, text=True)
