@@ -1,0 +1,21 @@
+#!/bin/bash
+python3 s3nse.py listFiles oob
+
+#def initialize(kargs):
+    #return(kargs)
+
+#def backupLog(kargs):
+    # /var/log/auth.log Authentication Logs
+    # /var/log/kern.log Kernal Logs
+    # /var/log/cron.log Cron Job Logs
+    # /var/log/httpd/ Apache Logs
+    # /var/log/nginx/ Nginx Logs
+    # /var/log/apt/ Package Logs
+    #return(kargs)
+
+# sudo iptables -F
+# sudo iptables -X
+# sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT
+# sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+# sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+# sudo iptables -A INPUT -j DROP
