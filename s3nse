@@ -1,5 +1,30 @@
 #!/bin/bash
-python3 s3nse.py listFiles oob
+
+echo "check, pull, backup"
+
+while true
+do
+    read -p ">> " reg
+    if [ $reg == "check" ]
+    then
+        if [ -z "$(cmp /etc/ssh/ssh_config ./configs/ssh_config)" ]
+        then
+            echo "SSH Configuration: Clean"
+        else
+            echo "SSH Configuration: Tainted"
+        fi
+    elif [ $reg == "pull" ]
+    then
+        echo $( )
+    elif [ $reg == "backup" ]
+    then
+        echo $( )
+    else
+        exit
+    fi
+
+done
+
 
 #def initialize(kargs):
     #return(kargs)
